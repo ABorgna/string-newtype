@@ -1,16 +1,27 @@
 //! # string-newtype: New Type idiom helper for string-like types
 
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
-}
+mod core;
+#[cfg(feature = "smol_str")]
+mod smol_str;
+mod string;
+
+pub use crate::core::{NewtypeBuf, NewtypeRef};
+#[cfg(feature = "smol_str")]
+pub use crate::smol_str::{SmolStrBuf, SmolStrRef};
+pub use crate::string::{StringBuf, StringRef};
 
 #[cfg(test)]
-mod tests {
+mod test {
     use super::*;
 
     #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
+    fn test_string_newtype() {
+        type S = StringBuf<()>;
+        type SRef = StringRef<()>;
+
+        let s: S = "Hello".into();
+        let s_ref: &SRef = &s;
+        let hello: &SRef = "Hello".into();
+        assert_eq!(hello, s_ref);
     }
 }

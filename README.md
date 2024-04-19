@@ -16,8 +16,11 @@ TODO
 
 ## Features
 
-- `smolstr`
+- `smol_str`
   Enables newtypes for `smol_str::SmolStr`s.
+
+- `serde`
+  Enables serialization and deserialization for the newtypes.
 
 ## Developing string-newtype
 
