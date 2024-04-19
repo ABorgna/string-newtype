@@ -1,0 +1,20 @@
+[package]
+name = "string-newtype"
+version = "0.1.0"
+authors = ["Agustin Borgna <agustinborgna@gmail.com>"]
+description = "New Type idiom helper for string-like types"
+keywords = ["newtype", "string", "wrapper"]
+categories = ["strings"]
+
+rust-version = "1.75"
+edition = "2021"
+homepage = "https://github.com/aborgna@string-newtype"
+repository = "https://github.com/aborgna@string-newtype"
+license = "Apache-2.0"
+readme = "README.md"
+documentation = "https://docs.rs/string-newtype"
+
+[workspace.lints.rust]
+missing_docs = "warn"
+
+[dependencies]
