@@ -14,7 +14,7 @@ pub struct NewtypeBuf<Marker, T = String> {
     pub(crate) _phantom: std::marker::PhantomData<Marker>,
 }
 
-/// References to [`NewtypeBuffer`]
+/// A slice for a [`NewtypeBuf`]
 #[repr(transparent)]
 #[cfg_attr(serde, derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(serde, serde(transparent))]

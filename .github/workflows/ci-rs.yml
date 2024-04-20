@@ -39,9 +39,8 @@ jobs:
       with:
         filters: |
           rust:
-            - 'hugr/**'
+            - 'src/**'
             - 'Cargo.toml'
-            - 'specification/schema/**'
 
   check:
     needs: changes
