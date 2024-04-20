@@ -19,7 +19,7 @@ where
 {
     fn clone(&self) -> Self {
         Self {
-            _phantom: self._phantom.clone(),
+            _phantom: self._phantom,
             s: self.s.clone(),
         }
     }
@@ -123,6 +123,16 @@ where
 impl<Marker, T, R> AsRef<R> for NewtypeBuf<Marker, T>
 where
     T: AsRef<R>,
+{
+    fn as_ref(&self) -> &R {
+        self.s.as_ref()
+    }
+}
+
+impl<Marker, T, R> AsRef<R> for NewtypeRef<Marker, T>
+where
+    T: Deref,
+    T::Target: AsRef<R>,
 {
     fn as_ref(&self) -> &R {
         self.s.as_ref()
