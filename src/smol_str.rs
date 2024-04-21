@@ -58,3 +58,27 @@ impl<Marker> SmolStrBuf<Marker> {
         self.s.is_heap_allocated()
     }
 }
+
+#[cfg(test)]
+mod test {
+    use super::*;
+
+    #[test]
+    fn smolstr_newtype() {
+        enum S {}
+        type SBuf = SmolStrBuf<S>;
+        type SRef = SmolStrRef<S>;
+
+        let s1: SBuf = SBuf::new_inline("Hello");
+        let s2: SBuf = SBuf::new_inline("Hello");
+        let _s3: SBuf = SBuf::new(s2.as_str());
+
+        let s_ref: &SRef = &s1;
+        let hello: &SRef = "Hello".into();
+        assert_eq!(hello, s_ref);
+
+        assert_eq!(s2.len(), 5);
+        assert!(!s2.is_empty());
+        assert!(!s2.is_heap_allocated());
+    }
+}

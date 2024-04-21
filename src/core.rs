@@ -6,7 +6,6 @@ use bytemuck::TransparentWrapper;
 use std::ops::Deref;
 
 /// Newtype wrapper for strings
-#[derive(Clone, Debug, Default, PartialEq, Eq, Hash)]
 #[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
 #[cfg_attr(feature = "serde", serde(transparent))]
 pub struct NewtypeBuf<Marker, T = String> {

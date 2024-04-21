@@ -5,6 +5,44 @@ use std::ops::Deref;
 
 use super::{NewtypeBuf, NewtypeRef};
 
+impl<Marker, T: Clone> Clone for NewtypeBuf<Marker, T> {
+    fn clone(&self) -> Self {
+        Self {
+            s: self.s.clone(),
+            _phantom: self._phantom,
+        }
+    }
+}
+
+impl<Marker, T: std::fmt::Debug> std::fmt::Debug for NewtypeBuf<Marker, T> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        f.debug_struct("NewtypeBuf").field("s", &self.s).finish()
+    }
+}
+
+impl<Marker, T: Default> Default for NewtypeBuf<Marker, T> {
+    fn default() -> Self {
+        Self {
+            s: Default::default(),
+            _phantom: Default::default(),
+        }
+    }
+}
+
+impl<Marker, T: PartialEq> PartialEq for NewtypeBuf<Marker, T> {
+    fn eq(&self, other: &Self) -> bool {
+        self.s == other.s
+    }
+}
+
+impl<Marker, T: Eq> Eq for NewtypeBuf<Marker, T> {}
+
+impl<Marker, T: std::hash::Hash> std::hash::Hash for NewtypeBuf<Marker, T> {
+    fn hash<H: std::hash::Hasher>(&self, state: &mut H) {
+        self.s.hash(state);
+    }
+}
+
 impl<Marker, T> Copy for NewtypeRef<Marker, T>
 where
     T: Deref,
