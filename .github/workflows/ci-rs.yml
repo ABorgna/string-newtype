@@ -94,7 +94,7 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        rust: ['1.75', beta, nightly]
+        rust: ['1.68', beta, nightly]
     name: tests (Rust ${{ matrix.rust }})
     steps:
       - uses: actions/checkout@v4
