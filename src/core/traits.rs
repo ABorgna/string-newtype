@@ -43,26 +43,6 @@ impl<Marker, T: std::hash::Hash> std::hash::Hash for NewtypeBuf<Marker, T> {
     }
 }
 
-impl<Marker, T> Copy for NewtypeRef<Marker, T>
-where
-    T: Deref,
-    T::Target: Copy,
-{
-}
-
-impl<Marker, T> Clone for NewtypeRef<Marker, T>
-where
-    T: Deref,
-    T::Target: Clone,
-{
-    fn clone(&self) -> Self {
-        Self {
-            _phantom: self._phantom,
-            s: self.s.clone(),
-        }
-    }
-}
-
 impl<Marker, T> std::hash::Hash for NewtypeRef<Marker, T>
 where
     T: Deref,
@@ -206,5 +186,22 @@ where
         let s = TransparentWrapper::peel_ref(self);
         let b: &<T as Deref>::Target = s.deref();
         TransparentWrapper::wrap_ref(b)
+    }
+}
+
+impl<Marker, T, R> ToOwned for NewtypeRef<Marker, T>
+where
+    T: Deref,
+    T::Target: ToOwned<Owned = R>,
+    // Extra indirection so the implementation is valid for `NewtypeRef<_, SmolString>` too.
+    R: Into<T>,
+{
+    type Owned = NewtypeBuf<Marker, T>;
+
+    fn to_owned(&self) -> Self::Owned {
+        NewtypeBuf {
+            s: self.s.to_owned().into(),
+            _phantom: Default::default(),
+        }
     }
 }

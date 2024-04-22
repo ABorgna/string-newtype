@@ -92,4 +92,23 @@ mod test {
         f(&s);
         f(s_ref);
     }
+
+    #[test]
+    fn tostring() {
+        let s: SmolStrBuf<()> = SmolStrBuf::new("Hello");
+        let s_ref: &SmolStrRef<()> = &s;
+
+        assert_eq!(s.to_string(), "Hello");
+        assert_eq!(s_ref.to_string(), "Hello");
+    }
+
+    #[test]
+    fn toowned() {
+        let s: SmolStrBuf<()> = SmolStrBuf::new("Hello");
+        let s_ref: &SmolStrRef<()> = &s;
+
+        let owned: SmolStrBuf<()> = SmolStrRef::to_owned(s_ref);
+
+        assert_eq!(owned, s);
+    }
 }
