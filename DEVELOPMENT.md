@@ -36,26 +36,20 @@ stable available.
 cargo +nightly miri test
 ```
 
-You can use the script in [`.github/pre-commit`](.github/pre-commit) to run the test and formatting required by our CI.
-To automatically check that before each commit, install it as a hook with:
+If you have `pre-commit` installed, you can run the checks with:
 
 ```bash
-ln -s .github/pre-commit $PWD/.git/hooks/pre-commit
-# Or, to check before pushing instead
-ln -s .github/pre-commit $PWD/.git/hooks/pre-push
+pre-commit run --all-files
 ```
 
 ## 💅 Coding Style
 
-The rustfmt tool is used to enforce a consistent rust coding style. The CI will fail if the code is not formatted correctly. Python code is formatted with black.
-
-To format your code, run:
+The rustfmt tool is used to enforce a consistent rust coding style. The CI will fail if the code is not formatted correctly.
+To check this run:
 
 ```bash
 # Format rust code
 cargo fmt
-# Format python code
-ruff format .
 ```
 
 We also check for clippy warnings, which are a set of linting rules for rust. To run clippy, run:

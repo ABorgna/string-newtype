@@ -12,7 +12,7 @@ fix:
 
 # Run the pre-commit checks
 check:
-    ./.github/pre-commit
+    pre-commit run --all-files
 
 # Format the code
 format:
