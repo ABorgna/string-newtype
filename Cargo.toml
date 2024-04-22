@@ -1,6 +1,6 @@
 [package]
 name = "string-newtype"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["Agustin Borgna <agustinborgna@gmail.com>"]
 description = "New Type idiom helper for string-like types"
 keywords = ["newtype", "string", "wrapper"]
