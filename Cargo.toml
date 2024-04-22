@@ -8,8 +8,8 @@ categories = ["strings"]
 
 rust-version = "1.68"
 edition = "2021"
-homepage = "https://github.com/aborgna@string-newtype"
-repository = "https://github.com/aborgna@string-newtype"
+homepage = "https://github.com/aborgna/string-newtype"
+repository = "https://github.com/aborgna/string-newtype"
 license = "Apache-2.0"
 readme = "README.md"
 documentation = "https://docs.rs/string-newtype"
