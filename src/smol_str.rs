@@ -107,7 +107,7 @@ mod test {
         let s: SmolStrBuf<()> = SmolStrBuf::new("Hello");
         let s_ref: &SmolStrRef<()> = &s;
 
-        let owned: SmolStrBuf<()> = SmolStrRef::to_owned(&s_ref);
+        let owned: SmolStrBuf<()> = SmolStrRef::to_owned(s_ref);
 
         assert_eq!(owned, s);
     }
