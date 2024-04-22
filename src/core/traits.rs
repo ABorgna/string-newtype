@@ -161,6 +161,7 @@ where
 impl<Marker, T, R> AsRef<R> for NewtypeBuf<Marker, T>
 where
     T: AsRef<R>,
+    R: ?Sized,
 {
     fn as_ref(&self) -> &R {
         self.s.as_ref()
@@ -171,6 +172,7 @@ impl<Marker, T, R> AsRef<R> for NewtypeRef<Marker, T>
 where
     T: Deref,
     T::Target: AsRef<R>,
+    R: ?Sized,
 {
     fn as_ref(&self) -> &R {
         self.s.as_ref()

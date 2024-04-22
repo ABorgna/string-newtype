@@ -81,4 +81,15 @@ mod test {
         assert!(!s2.is_empty());
         assert!(!s2.is_heap_allocated());
     }
+
+    #[test]
+    fn asref() {
+        fn f(_: impl AsRef<str>) {}
+
+        let s: SmolStrBuf<()> = SmolStrBuf::new("Hello");
+        let s_ref: &SmolStrRef<()> = &s;
+
+        f(&s);
+        f(s_ref);
+    }
 }
