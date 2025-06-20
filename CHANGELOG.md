@@ -4,6 +4,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [0.1.2](https://github.com/ABorgna/string-newtype/compare/v0.1.1...v0.1.2) - 2025-06-20
+
+### Added
+
+- Support newer smol_str versions ([#15](https://github.com/ABorgna/string-newtype/pull/15))
+
+### Fixed
+
+- `NewtypeRef` not implementing serialize/deserialize ([#14](https://github.com/ABorgna/string-newtype/pull/14))
+
+### Other
+
+- Fix crate homepage link
+
 ## [0.1.1](https://github.com/ABorgna/string-newtype/compare/v0.1.0...v0.1.1) - 2024-04-22
 
 ### Added
