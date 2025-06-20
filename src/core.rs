@@ -15,13 +15,21 @@ pub struct NewtypeBuf<Marker, T = String> {
 
 /// A slice for a [`NewtypeBuf`]
 #[repr(transparent)]
-#[cfg_attr(serde, derive(serde::Serialize, serde::Deserialize))]
-#[cfg_attr(serde, serde(transparent))]
+#[cfg_attr(feature = "serde", derive(serde::Serialize, serde::Deserialize))]
+#[cfg_attr(feature = "serde", serde(transparent))]
 pub struct NewtypeRef<Marker, T>
 where
     T: Deref,
 {
     pub(crate) _phantom: std::marker::PhantomData<Marker>,
+    #[cfg_attr(
+        feature = "serde",
+        serde(bound(deserialize = "<T as Deref>::Target: serde::Deserialize<'de> + Sized"))
+    )]
+    #[cfg_attr(
+        feature = "serde",
+        serde(bound(serialize = "<T as Deref>::Target: serde::Serialize + Sized"))
+    )]
     pub(crate) s: <T as Deref>::Target,
 }
 
