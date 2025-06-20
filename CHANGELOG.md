@@ -16,10 +16,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Other
 
-- Update old CI dependencies ([#13](https://github.com/ABorgna/string-newtype/pull/13))
-- *(deps)* bump codecov/codecov-action from 4 to 5 ([#11](https://github.com/ABorgna/string-newtype/pull/11))
-- *(deps)* bump mozilla-actions/sccache-action from 0.0.5 to 0.0.6 ([#9](https://github.com/ABorgna/string-newtype/pull/9))
-- *(deps)* bump mozilla-actions/sccache-action from 0.0.4 to 0.0.5 ([#7](https://github.com/ABorgna/string-newtype/pull/7))
 - Fix crate homepage link
 
 ## [0.1.1](https://github.com/ABorgna/string-newtype/compare/v0.1.0...v0.1.1) - 2024-04-22
