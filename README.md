@@ -5,7 +5,7 @@
 [![codecov][]](https://codecov.io/gh/aborgna/string-newtype)
 
   [build_status]: https://github.com/ABorgna/string-newtype/actions/workflows/ci-rs.yml/badge.svg?branch=main
-  [msrv]: https://img.shields.io/badge/rust-1.75.0%2B-blue.svg
+  [msrv]: https://img.shields.io/crates/msrv/string-newtype
   [codecov]: https://img.shields.io/codecov/c/gh/aborgna/string-newtype?logo=codecov
 
 `string-newtype` is a helper library for using the [newtype idiom](https://doc.rust-lang.org/rust-by-example/generics/new_types.html) with string-like types, including newtyped string slices.
