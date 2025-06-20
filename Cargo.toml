@@ -4,7 +4,7 @@ version = "0.1.2"
 authors = ["Agustin Borgna <agustinborgna@gmail.com>"]
 description = "New Type idiom helper for string-like types"
 keywords = ["newtype", "string", "wrapper"]
-categories = ["strings"]
+categories = ["data-structures"]
 
 rust-version = "1.68"
 edition = "2021"
