@@ -12,12 +12,11 @@ fix:
 
 # Run the pre-commit checks
 check:
-    pre-commit run --all-files
+    uvx pre-commit run --all-files
 
 # Format the code
 format:
     cargo fmt
-    ruff format .
 
 # Generate a test coverage report
 coverage:
