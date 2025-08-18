@@ -33,7 +33,7 @@ jobs:
     outputs:
       rust: ${{ github.ref_name == github.event.repository.default_branch || steps.filter.outputs.rust }}
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
     - uses: dorny/paths-filter@v3
       id: filter
       with:
@@ -47,7 +47,7 @@ jobs:
     if: ${{ needs.changes.outputs.rust == 'true' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: mozilla-actions/sccache-action@v0.0.9
       - name: Install stable toolchain
         uses: dtolnay/rust-toolchain@stable
@@ -69,7 +69,7 @@ jobs:
     runs-on: ubuntu-latest
     name: tests (Rust stable)
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: mozilla-actions/sccache-action@v0.0.9
       - id: toolchain
         uses: dtolnay/rust-toolchain@master
@@ -97,7 +97,7 @@ jobs:
         rust: ['1.68', beta, nightly]
     name: tests (Rust ${{ matrix.rust }})
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: mozilla-actions/sccache-action@v0.0.9
       - id: toolchain
         uses: dtolnay/rust-toolchain@master
@@ -145,7 +145,7 @@ jobs:
     if: always() && !failure() && !cancelled() && needs.changes.outputs.rust == 'true' && github.event_name != 'merge_group'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: mozilla-actions/sccache-action@v0.0.9
       - uses: dtolnay/rust-toolchain@nightly
         with:
